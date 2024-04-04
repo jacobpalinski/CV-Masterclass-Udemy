@@ -8,7 +8,7 @@ face_detector = cv2.CascadeClassifier(r'haarcascade_frontalface_default.xml')
 # Video capture
 video_capture = cv2.VideoCapture(0)
 ''' 0 denotes own webcam, 1 indicates some other webcam'''
-
+video_capture.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
 
 # Capture frame-by-frame
 while True:
@@ -24,7 +24,7 @@ while True:
     # Display the resulting frame
     cv2.imshow('Video', frame)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('q'): # When pressing q key close window and finish process
         break
 
 # When everything is done release the capture
